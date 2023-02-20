@@ -150,7 +150,7 @@ def imagedownload(filename):
     href = f'<a href="data:image/png;base64,{b64}" download={filename}>Download {filename} File</a>'
     return href
 
-st.subheader('**Rendered Avatar**')
+st.subheader('**Avatar is ready**')
 rendered_avatar = avatar.render_png_file('avatar.png')
 image = Image.open('avatar.png')
 st.image(image)
