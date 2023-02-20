@@ -13,7 +13,7 @@ This app allows you to build your own avatarbased on module templates provided h
 
  #sidebar menu
 st.sidebar.header('Build your avatar')
-option_style=st.sidebar.selectbox('STYLE',('TRANSPARENT','CIRCLE','RECTANGLE'))
+option_style=st.sidebar.selectbox('STYLE',('TRANSPARENT','CIRCLE'))
 
 
 list_skin_color = ['TANNED','YELLOW','PALE','LIGHT','BROWN','DARK_BROWN','BLACK']
