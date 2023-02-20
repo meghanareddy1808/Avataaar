@@ -125,7 +125,7 @@ avatar = pa.PyAvataaar(
     skin_color=eval('pa.SkinColor.%s' % option_skin_color),
     top_type=eval('pa.TopType.SHORT_HAIR_SHORT_FLAT.%s' % option_top_type),
     hair_color=eval('pa.HairColor.%s' % option_hair_color),
-    hat_color=eval('pa.ClotheColor.%s' % option_hat_color),
+    
     facial_hair_type=eval('pa.FacialHairType.%s' % option_facial_hair_type),
     facial_hair_color=eval('pa.FacialHairColor.%s' % option_facial_hair_color),
     mouth_type=eval('pa.MouthType.%s' % option_mouth_type),
