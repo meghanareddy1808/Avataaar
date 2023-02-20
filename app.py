@@ -12,8 +12,8 @@ This app allows you to build your own avatarbased on module templates provided h
 """)
 
  #sidebar menu
-st.sidebar.header('Customize your avatar')
-option_style=st.sidebar.selectbox('STYLE',('CIRCLE','TRANSPARENT'))
+st.sidebar.header('Build your avatar')
+option_style=st.sidebar.selectbox('STYLE',('TRANSPARENT','CIRCLE','RECTANGLE'))
 
 
 list_skin_color = ['TANNED','YELLOW','PALE','LIGHT','BROWN','DARK_BROWN','BLACK']
@@ -31,7 +31,7 @@ list_top_type = ['NO_HAIR','EYE_PATCH','HAT','HIJAB','TURBAN',
                  'SHORT_HAIR_SHORT_FLAT','SHORT_HAIR_SHORT_ROUND',
                  'SHORT_HAIR_SHORT_WAVED','SHORT_HAIR_SIDES',
                  'SHORT_HAIR_THE_CAESAR','SHORT_HAIR_THE_CAESAR_SIDE_PART']
-list_hair_color = ['AUBURN','BLACK','BLONDE','BLONDE_GOLDEN','BROWN',
+list_hair_color = ['BLACK','BLONDE','BLONDE_GOLDEN','BROWN','AUBURN',
                    'BROWN_DARK','PASTEL_PINK','PLATINUM','RED','SILVER_GRAY']
 list_hat_color = ['BLACK','BLUE_01','BLUE_02','BLUE_03','GRAY_01','GRAY_02',
                   'HEATHER','PASTEL_BLUE','PASTEL_GREEN','PASTEL_ORANGE',
@@ -122,7 +122,7 @@ option_clothe_graphic_type = st.sidebar.selectbox('Clothe graphic type',
                                                    index = index_clothe_graphic_type)
 
 # Creating the Avatar
-# options provided in https://github.com/kebu/py-avataaars/blob/master/py_avataaars/__init__.py
+
 avatar = pa.PyAvataaar(
     #style=pa.AvatarStyle.CIRCLE,
     style=eval('pa.AvatarStyle.%s' % option_style),
