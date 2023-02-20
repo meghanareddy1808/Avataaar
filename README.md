@@ -1,9 +1,11 @@
 # Avataaar
 Avatar app allows users to use their creativity and build an avatar with the module template provided.
 
-## Tech Stacks Used
+It is built using python and it's libraries like pillow, base64, pyavataaars, random
 
-<img src="https://img.shields.io/badge/python%20-%2314354C.svg?&style=for-the-badge&logo=python&logoColor=white"/>
+
+After the modeling part the model is deployed using Streamlit library on Streamlit Share so that the app is available for usage for everyone.
+
 
 
 The link for the app is:
