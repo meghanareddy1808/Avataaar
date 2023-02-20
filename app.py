@@ -5,8 +5,11 @@ import base64
 from random import randrange
 #page Title
 st.markdown("""
-#Avatar Generator
- This app allows you to build your own avatarbased on module templates provided herein.""")
+# Avatar Generator
+
+This app allows you to build your own avatarbased on module templates provided herein.
+
+""")
 
  #sidebar menu
 st.sidebar.header('Customize your avatar')
