@@ -37,12 +37,12 @@ list_hat_color = ['BLACK','BLUE_01','BLUE_02','BLUE_03','GRAY_01','GRAY_02',
                   'HEATHER','PASTEL_BLUE','PASTEL_GREEN','PASTEL_ORANGE',
                   'PASTEL_RED','PASTEL_YELLOW','PINK','RED','WHITE']
                   
-list_facial_hair_type = ['DEFAULT','BEARD_MEDIUM','BEARD_LIGHT','BEARD_MAJESTIC','MOUSTACHE_FANCY','MOUSTACHE_MAGNUM']
+list_facial_hair_type = ['BEARD_MEDIUM','BEARD_LIGHT','BEARD_MAJESTIC','MOUSTACHE_FANCY','MOUSTACHE_MAGNUM','DEFAULT']
 list_facial_hair_color = ['AUBURN','BLACK','BLONDE','BLONDE_GOLDEN','BROWN','BROWN_DARK','PLATINUM','RED']
-list_mouth_type = ['DEFAULT','CONCERNED','DISBELIEF','EATING','GRIMACE','SAD','SCREAM_OPEN','SERIOUS','SMILE','TONGUE','TWINKLE','VOMIT']
+list_mouth_type = ['SMILE','CONCERNED','DISBELIEF','EATING','GRIMACE','DEFAULT','SAD','SCREAM_OPEN','SERIOUS','TONGUE','TWINKLE','VOMIT']
 list_eye_type = ['DEFAULT','CLOSE','CRY','DIZZY','EYE_ROLL','HAPPY','HEARTS','SIDE','SQUINT','SURPRISED','WINK','WINK_WACKY']
 list_eyebrow_type = ['DEFAULT','DEFAULT_NATURAL','ANGRY','ANGRY_NATURAL','FLAT_NATURAL','RAISED_EXCITED','RAISED_EXCITED_NATURAL','SAD_CONCERNED','SAD_CONCERNED_NATURAL','UNI_BROW_NATURAL','UP_DOWN','UP_DOWN_NATURAL','FROWN_NATURAL']
-list_accessories_type = ['DEFAULT','KURT','PRESCRIPTION_01','PRESCRIPTION_02','ROUND','SUNGLASSES','WAYFARERS']
+list_accessories_type = [,'KURT','PRESCRIPTION_01','PRESCRIPTION_02','ROUND','DEFAULT','SUNGLASSES','WAYFARERS']
 list_clothe_type = ['BLAZER_SHIRT','BLAZER_SWEATER','COLLAR_SWEATER','GRAPHIC_SHIRT','HOODIE','OVERALL','SHIRT_CREW_NECK','SHIRT_SCOOP_NECK','SHIRT_V_NECK']
 list_clothe_color = ['BLACK','BLUE_01','BLUE_02','BLUE_03','GRAY_01','GRAY_02','HEATHER','PASTEL_BLUE','PASTEL_GREEN','PASTEL_ORANGE','PASTEL_RED','PASTEL_YELLOW','PINK','RED','WHITE']
 list_clothe_graphic_type = ['BAT','CUMBIA','DEER','DIAMOND','HOLA','PIZZA','RESIST','SELENA','BEAR','SKULL_OUTLINE','SKULL']
@@ -61,21 +61,21 @@ if st.button('Random Avatar'):
     index_clothe_color = randrange(0, len(list_clothe_color) )
     index_clothe_graphic_type = randrange(0, len(list_clothe_graphic_type) )
 else:
-    index_skin_color = 0
-    index_top_type = 0
-    index_hair_color = 0
-    index_hat_color = 0
+    index_skin_color = 3
+    index_top_type = 2
+    index_hair_color = 3
+    index_hat_color = 1
     index_facial_hair_type = 0
-    index_facial_hair_color = 0
-    index_mouth_type = 0
-    index_eye_type = 0
-    index_eyebrow_type = 0
+    index_facial_hair_color = 1
+    index_mouth_type = 1
+    index_eye_type = 2
+    index_eyebrow_type = 1
     index_accessories_type = 0
     index_clothe_type = 0
-    index_clothe_color = 0
+    index_clothe_color = 3
     index_clothe_graphic_type = 0
 
-option_skin_color = st.sidebar.selectbox('Skin color',
+option_skin_color = st.sidebar.selectbox('Skin tone',
                                          list_skin_color,
                                          index = index_skin_color )
 
@@ -97,13 +97,13 @@ option_facial_hair_type = st.sidebar.selectbox('Facial hair type',
 option_facial_hair_color = st.sidebar.selectbox('Facial hair color',
                                                 list_facial_hair_color,
                                                 index = index_facial_hair_color)
-option_mouth_type = st.sidebar.selectbox('Mouth type',
+option_mouth_type = st.sidebar.selectbox('Mouth',
                                           list_mouth_type,
                                           index = index_mouth_type)
-option_eye_type = st.sidebar.selectbox('Eye type',
+option_eye_type = st.sidebar.selectbox('Eyes',
                                         list_eye_type,
                                         index = index_eye_type)
-option_eyebrow_type = st.sidebar.selectbox('Eyebrow type',
+option_eyebrow_type = st.sidebar.selectbox('Eyebrow',
                                             list_eyebrow_type,
                                             index = index_eyebrow_type)
 
@@ -141,7 +141,7 @@ avatar = pa.PyAvataaar(
     clothe_color=eval('pa.ClotheColor.%s' % option_clothe_color),
     clothe_graphic_type=eval('pa.ClotheGraphicType.%s' %option_clothe_graphic_type)
 )
-print("option_hat_color =", option_hat_color)
+
 
 # Custom function for encoding and downloading avatar image
 def imagedownload(filename):
