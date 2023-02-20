@@ -3,15 +3,23 @@ import py_avataaars as pa
 from PIL import Image
 import base64
 from random import randrange
-#page Title
+
+# Page title
 st.markdown("""
-#Avatar Generator
- This app allows you to build your own avatarbased on module templates provided herein.""")
+# Avatar Maker
+This app allows you to build your own custom avatars based on modular templates provided herein.
+**Credits**
+- App built in `Python` + `Streamlit` by [Chanin Nantasenamat](https://medium.com/@chanin.nantasenamat) (aka [Data Professor](http://youtube.com/dataprofessor))
+- App inspired by the [avataaars generator](https://getavataaars.com) by [Fang-Pen Lin](https://twitter.com/fangpenlin)
+- Built with [py_avataaars](https://pypi.org/project/py-avataaars/) library by [Krzysztof Ebert](https://github.com/kebu)
+- Avatar is based on Sketch library [Avataaars](https://avataaars.com) designed by [Pablo Stanley](https://twitter.com/pablostanley).
+---
+""")
 
- #sidebar menu
+# Sidebar menu for customizing the avatar
 st.sidebar.header('Customize your avatar')
-option_style=st.sidebar.selectbox('STYLE',('CIRCLE','TRANSPARENT'))
 
+option_style = st.sidebar.selectbox('Style', ('CIRCLE', 'TRANSPARENT'))
 
 list_skin_color = ['TANNED','YELLOW','PALE','LIGHT','BROWN','DARK_BROWN','BLACK']
 list_top_type = ['NO_HAIR','EYE_PATCH','HAT','HIJAB','TURBAN',
@@ -33,6 +41,7 @@ list_hair_color = ['AUBURN','BLACK','BLONDE','BLONDE_GOLDEN','BROWN',
 list_hat_color = ['BLACK','BLUE_01','BLUE_02','BLUE_03','GRAY_01','GRAY_02',
                   'HEATHER','PASTEL_BLUE','PASTEL_GREEN','PASTEL_ORANGE',
                   'PASTEL_RED','PASTEL_YELLOW','PINK','RED','WHITE']
+
 list_facial_hair_type = ['DEFAULT','BEARD_MEDIUM','BEARD_LIGHT','BEARD_MAJESTIC','MOUSTACHE_FANCY','MOUSTACHE_MAGNUM']
 list_facial_hair_color = ['AUBURN','BLACK','BLONDE','BLONDE_GOLDEN','BROWN','BROWN_DARK','PLATINUM','RED']
 list_mouth_type = ['DEFAULT','CONCERNED','DISBELIEF','EATING','GRIMACE','SAD','SCREAM_OPEN','SERIOUS','SMILE','TONGUE','TWINKLE','VOMIT']
@@ -42,6 +51,7 @@ list_accessories_type = ['DEFAULT','KURT','PRESCRIPTION_01','PRESCRIPTION_02','R
 list_clothe_type = ['BLAZER_SHIRT','BLAZER_SWEATER','COLLAR_SWEATER','GRAPHIC_SHIRT','HOODIE','OVERALL','SHIRT_CREW_NECK','SHIRT_SCOOP_NECK','SHIRT_V_NECK']
 list_clothe_color = ['BLACK','BLUE_01','BLUE_02','BLUE_03','GRAY_01','GRAY_02','HEATHER','PASTEL_BLUE','PASTEL_GREEN','PASTEL_ORANGE','PASTEL_RED','PASTEL_YELLOW','PINK','RED','WHITE']
 list_clothe_graphic_type = ['BAT','CUMBIA','DEER','DIAMOND','HOLA','PIZZA','RESIST','SELENA','BEAR','SKULL_OUTLINE','SKULL']
+
 if st.button('Random Avatar'):
     index_skin_color = randrange(0, len(list_skin_color) )
     index_top_type = randrange(0, len(list_top_type) )
@@ -125,7 +135,7 @@ avatar = pa.PyAvataaar(
     skin_color=eval('pa.SkinColor.%s' % option_skin_color),
     top_type=eval('pa.TopType.SHORT_HAIR_SHORT_FLAT.%s' % option_top_type),
     hair_color=eval('pa.HairColor.%s' % option_hair_color),
-    
+    hat_color=eval('pa.ClotheColor.%s' % option_hat_color),
     facial_hair_type=eval('pa.FacialHairType.%s' % option_facial_hair_type),
     facial_hair_color=eval('pa.FacialHairColor.%s' % option_facial_hair_color),
     mouth_type=eval('pa.MouthType.%s' % option_mouth_type),
