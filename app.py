@@ -3,23 +3,15 @@ import py_avataaars as pa
 from PIL import Image
 import base64
 from random import randrange
-
-# Page title
+#page Title
 st.markdown("""
-# Avatar Maker
-This app allows you to build your own custom avatars based on modular templates provided herein.
-**Credits**
-- App built in `Python` + `Streamlit` by [Chanin Nantasenamat](https://medium.com/@chanin.nantasenamat) (aka [Data Professor](http://youtube.com/dataprofessor))
-- App inspired by the [avataaars generator](https://getavataaars.com) by [Fang-Pen Lin](https://twitter.com/fangpenlin)
-- Built with [py_avataaars](https://pypi.org/project/py-avataaars/) library by [Krzysztof Ebert](https://github.com/kebu)
-- Avatar is based on Sketch library [Avataaars](https://avataaars.com) designed by [Pablo Stanley](https://twitter.com/pablostanley).
----
-""")
+#Avatar Generator
+ This app allows you to build your own avatarbased on module templates provided herein.""")
 
-# Sidebar menu for customizing the avatar
+ #sidebar menu
 st.sidebar.header('Customize your avatar')
+option_style=st.sidebar.selectbox('STYLE',('CIRCLE','TRANSPARENT'))
 
-option_style = st.sidebar.selectbox('Style', ('CIRCLE', 'TRANSPARENT'))
 
 list_skin_color = ['TANNED','YELLOW','PALE','LIGHT','BROWN','DARK_BROWN','BLACK']
 list_top_type = ['NO_HAIR','EYE_PATCH','HAT','HIJAB','TURBAN',
@@ -41,7 +33,7 @@ list_hair_color = ['AUBURN','BLACK','BLONDE','BLONDE_GOLDEN','BROWN',
 list_hat_color = ['BLACK','BLUE_01','BLUE_02','BLUE_03','GRAY_01','GRAY_02',
                   'HEATHER','PASTEL_BLUE','PASTEL_GREEN','PASTEL_ORANGE',
                   'PASTEL_RED','PASTEL_YELLOW','PINK','RED','WHITE']
-
+                  
 list_facial_hair_type = ['DEFAULT','BEARD_MEDIUM','BEARD_LIGHT','BEARD_MAJESTIC','MOUSTACHE_FANCY','MOUSTACHE_MAGNUM']
 list_facial_hair_color = ['AUBURN','BLACK','BLONDE','BLONDE_GOLDEN','BROWN','BROWN_DARK','PLATINUM','RED']
 list_mouth_type = ['DEFAULT','CONCERNED','DISBELIEF','EATING','GRIMACE','SAD','SCREAM_OPEN','SERIOUS','SMILE','TONGUE','TWINKLE','VOMIT']
@@ -51,7 +43,6 @@ list_accessories_type = ['DEFAULT','KURT','PRESCRIPTION_01','PRESCRIPTION_02','R
 list_clothe_type = ['BLAZER_SHIRT','BLAZER_SWEATER','COLLAR_SWEATER','GRAPHIC_SHIRT','HOODIE','OVERALL','SHIRT_CREW_NECK','SHIRT_SCOOP_NECK','SHIRT_V_NECK']
 list_clothe_color = ['BLACK','BLUE_01','BLUE_02','BLUE_03','GRAY_01','GRAY_02','HEATHER','PASTEL_BLUE','PASTEL_GREEN','PASTEL_ORANGE','PASTEL_RED','PASTEL_YELLOW','PINK','RED','WHITE']
 list_clothe_graphic_type = ['BAT','CUMBIA','DEER','DIAMOND','HOLA','PIZZA','RESIST','SELENA','BEAR','SKULL_OUTLINE','SKULL']
-
 if st.button('Random Avatar'):
     index_skin_color = randrange(0, len(list_skin_color) )
     index_top_type = randrange(0, len(list_top_type) )
@@ -147,6 +138,7 @@ avatar = pa.PyAvataaar(
     clothe_color=eval('pa.ClotheColor.%s' % option_clothe_color),
     clothe_graphic_type=eval('pa.ClotheGraphicType.%s' %option_clothe_graphic_type)
 )
+print("option_hat_color =", option_hat_color)
 
 # Custom function for encoding and downloading avatar image
 def imagedownload(filename):
